@@ -13,17 +13,6 @@ import {Controller , Get, Put  } from '@nestjs/common';
      {
          return "Al dddl teacher";
      }
-     
-     @Get('/:teacherId/students')
-     getTeacherStudentId()
-     {
-         return "All teacher's students ffffffff";
-     }
-
-     @Put('/:teacherId/students/:studentId')
-     editTeacherStudentId(){
-         return " All teacher alogn with student updated"
-
-     }
+    
 
  }

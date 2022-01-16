@@ -1,31 +1,31 @@
-import {Controller , Get , Post, Put  } from '@nestjs/common';
+import {Controller , Get , Post, Put , Param , Body } from '@nestjs/common';
+import { json } from 'stream/consumers';
 
 @Controller('students')
  export class StudentController {
      @Get()
-     getStudent()
+     getStudent( )
      {
-         return "All studentsss";
+         return "All students is being returned here ";
      }
 
      @Get('/:studentsId')
-     getStudentId()
-     {
-         return "student id";
+     getStudentId( @Param('studentsId') studentsId :string )
+     { 
+         // use backtik `` , location left of 1 hehe lol 
+     return `student id ${studentsId}`
      }
     
     @Post()
-    createStudent()
+    createStudent(@Body() body)
     {
-        return " student created scuessfully";
+        return `student created scuessfully ${JSON.stringify(body)}`;
     }
 
     @Put('/:studentsId')
-    editStudentId()
+    editStudentId(@Param('studentsId') studentId : string , @Body() body)
     {
-        return " updated student info wise id ";
+        return ` updated student info wise id ${studentId} ${JSON.stringify(body)} `;
     }
-
-
 
  }
